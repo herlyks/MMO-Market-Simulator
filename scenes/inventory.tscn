@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqqkfw6ntbnqk"]
+
+[ext_resource type="Script" path="res://scenes/inventory.gd" id="1_2cty8"]
+[ext_resource type="Script" path="res://scenes/material_grid_container.gd" id="2_37xje"]
+
+[node name="Inventory" type="TabBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+script = ExtResource("1_2cty8")
+metadata/_tab_index = 1
+
+[node name="InventoryTabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+current_tab = 0
+
+[node name="Material" type="TabBar" parent="InventoryTabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MaterialGridContainer" type="GridContainer" parent="InventoryTabContainer/Material"]
+layout_mode = 1
+script = ExtResource("2_37xje")
+
+[node name="Equipment" type="TabBar" parent="InventoryTabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Ingredient" type="TabBar" parent="InventoryTabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Food" type="TabBar" parent="InventoryTabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Potion" type="TabBar" parent="InventoryTabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[connection signal="visibility_changed" from="InventoryTabContainer/Material/MaterialGridContainer" to="InventoryTabContainer/Material/MaterialGridContainer" method="_on_material_grid_container_visibility_changed"]

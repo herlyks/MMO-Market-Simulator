@@ -1,6 +1,10 @@
 extends Control
 
-@export var activity_button_group: ButtonGroup 
+@export var activity_button_group: ButtonGroup
+@export var btn_hunting: Button
+@export var btn_mining: Button
+@export var btn_dungeon1: Button
+@export var btn_dungeon2: Button
 
 var activity = null
 
@@ -26,14 +30,16 @@ func _on_end_day_button_pressed() -> void:
 			print("Obtained ", new_ores, " ores.")
 
 	activity = null
+	for btn in activity_button_group.get_buttons():
+		btn.button_pressed = false
 
 
 func set_activity(btn):
-	if btn == $ActivityVBox/HuntingButton:
+	if btn == btn_hunting:
 		activity = "hunting"
-	elif btn == $ActivityVBox/MiningButton:
+	elif btn == btn_mining:
 		activity = "mining"
-	elif btn == $ActivityVBox/ExploreDungeon1:
+	elif btn == btn_dungeon1:
 		activity = "dungeon1"
-	elif btn == $ActivityVBox/ExploreDungeon2:
+	elif btn == btn_dungeon2:
 		activity = "dungeon2"
