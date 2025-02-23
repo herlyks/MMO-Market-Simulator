@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp5tl48o1l1pe"]
+
+[ext_resource type="Script" path="res://scenes/scripts/activity.gd" id="1_c1b76"]
+[ext_resource type="ButtonGroup" uid="uid://dya8a2smjmmjd" path="res://scenes/activity_button_group.tres" id="1_w3ith"]
+
+[node name="Activity" type="TabBar"]
+script = ExtResource("1_c1b76")
+activity_btn_group = ExtResource("1_w3ith")
+metadata/_tab_index = 0
+
+[node name="ActivityVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 154.0
+offset_bottom = 136.0
+
+[node name="HuntingButton" type="Button" parent="ActivityVBox"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_w3ith")
+text = "Hunting"
+
+[node name="MiningButton" type="Button" parent="ActivityVBox"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_w3ith")
+text = "Mining"
+
+[node name="ExploreDungeon1" type="Button" parent="ActivityVBox"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_w3ith")
+text = "Explore Dungeon 1"
+
+[node name="ExploreDungeon2" type="Button" parent="ActivityVBox"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_w3ith")
+text = "Explore Dungeon 2"
+
+[connection signal="pressed" from="ActivityVBox/HuntingButton" to="." method="_on_hunting_button_pressed"]
+[connection signal="pressed" from="ActivityVBox/MiningButton" to="." method="_on_mining_button_pressed"]

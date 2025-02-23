@@ -21,12 +21,7 @@ func _on_material_grid_container_visibility_changed() -> void:
 	table.add_child(space_header)
 	table.add_child(price_header)
 	
-	var inventory = [
-		{ "name": "Leather", "count": randi_range(1, 5), "space": "1", "price": "5"},
-		{ "name": "Iron Ingot", "count": randi_range(1, 10), "space": "2", "price": "10"}
-	]
-	
-	for item in inventory:
+	for item in Player.get_inventory():
 		var name = Label.new()
 		var count = Label.new()
 		var space = Label.new()

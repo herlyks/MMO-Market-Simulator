@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqqkfw6ntbnqk"]
 
-[ext_resource type="Script" path="res://scenes/inventory.gd" id="1_2cty8"]
-[ext_resource type="Script" path="res://scenes/material_grid_container.gd" id="2_37xje"]
+[ext_resource type="Script" path="res://scenes/scripts/inventory.gd" id="1_2cty8"]
+[ext_resource type="Script" path="res://scenes/scripts/material_grid_container.gd" id="2_37xje"]
 
 [node name="Inventory" type="TabBar"]
 anchors_preset = 15

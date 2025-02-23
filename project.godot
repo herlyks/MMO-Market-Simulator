@@ -14,6 +14,10 @@ config/name="MMO Market Simulator"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Player="*res://globals/player.gd"
+
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true

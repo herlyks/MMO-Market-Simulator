@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxn3rqomo82do"]
+[gd_scene load_steps=5 format=3 uid="uid://dxn3rqomo82do"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_mpesy"]
-[ext_resource type="ButtonGroup" uid="uid://dya8a2smjmmjd" path="res://scenes/activity_button_group.tres" id="2_eccqa"]
+[ext_resource type="Script" path="res://scenes/scripts/main.gd" id="1_mpesy"]
+[ext_resource type="PackedScene" uid="uid://cp5tl48o1l1pe" path="res://scenes/activity.tscn" id="3_3wh1q"]
 [ext_resource type="PackedScene" uid="uid://cqqkfw6ntbnqk" path="res://scenes/inventory.tscn" id="3_lqvo8"]
 
-[node name="Main" type="Control" node_paths=PackedStringArray("btn_hunting", "btn_mining", "btn_dungeon1", "btn_dungeon2")]
+[sub_resource type="ButtonGroup" id="ButtonGroup_a5ucl"]
+
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,11 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mpesy")
-activity_button_group = ExtResource("2_eccqa")
-btn_hunting = NodePath("VBoxContainer/MainTabContainer/Activity/ActivityVBox/HuntingButton")
-btn_mining = NodePath("VBoxContainer/MainTabContainer/Activity/ActivityVBox/MiningButton")
-btn_dungeon1 = NodePath("VBoxContainer/MainTabContainer/Activity/ActivityVBox/ExploreDungeon1")
-btn_dungeon2 = NodePath("VBoxContainer/MainTabContainer/Activity/ActivityVBox/ExploreDungeon2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -36,38 +33,9 @@ text = "End Day"
 layout_mode = 2
 current_tab = 0
 
-[node name="Activity" type="TabBar" parent="VBoxContainer/MainTabContainer"]
+[node name="Activity" parent="VBoxContainer/MainTabContainer" instance=ExtResource("3_3wh1q")]
 layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="ActivityVBox" type="VBoxContainer" parent="VBoxContainer/MainTabContainer/Activity"]
-layout_mode = 1
-offset_right = 154.0
-offset_bottom = 136.0
-
-[node name="HuntingButton" type="Button" parent="VBoxContainer/MainTabContainer/Activity/ActivityVBox"]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("2_eccqa")
-text = "Hunting"
-
-[node name="MiningButton" type="Button" parent="VBoxContainer/MainTabContainer/Activity/ActivityVBox"]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("2_eccqa")
-text = "Mining"
-
-[node name="ExploreDungeon1" type="Button" parent="VBoxContainer/MainTabContainer/Activity/ActivityVBox"]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("2_eccqa")
-text = "Explore Dungeon 1"
-
-[node name="ExploreDungeon2" type="Button" parent="VBoxContainer/MainTabContainer/Activity/ActivityVBox"]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("2_eccqa")
-text = "Explore Dungeon 2"
+activity_btn_group = SubResource("ButtonGroup_a5ucl")
 
 [node name="Inventory" parent="VBoxContainer/MainTabContainer" instance=ExtResource("3_lqvo8")]
 visible = false
@@ -93,4 +61,5 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
+[connection signal="day_end" from="." to="VBoxContainer/MainTabContainer/Activity" method="_on_main_day_end"]
 [connection signal="pressed" from="VBoxContainer/EndDayButton" to="." method="_on_end_day_button_pressed"]
