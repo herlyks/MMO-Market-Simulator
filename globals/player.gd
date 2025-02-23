@@ -2,10 +2,13 @@ extends Node
 
 var _inventory = []
 
+
 func get_inventory():
-	_inventory.sort_custom(func(a, b): return a.name < b.name)
+	var inventory = _inventory.filter(func(item): return item.count > 0)
+	inventory.sort_custom(func(a, b): return a.name < b.name)
 	
-	return _inventory
+	return inventory
+
 
 func add_item(item: Item):
 	var has_item = false
@@ -17,3 +20,9 @@ func add_item(item: Item):
 	
 	if has_item == false:
 		_inventory.append(item)
+
+
+func remove_item(item: Item):
+	for i in _inventory:
+		if i.id == item.id and i.count >= item.count:
+			i.count -= item.count

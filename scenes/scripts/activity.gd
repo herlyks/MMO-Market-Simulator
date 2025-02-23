@@ -31,10 +31,10 @@ func _on_main_day_end() -> void:
 		print("got ", leather.count, " leathers")
 	
 	if activity == "mining":
-		var iron_ingot = load("res://items/iron_ingot.tres").duplicate()
+		var iron_ingot = load("res://items/iron_ore.tres").duplicate()
 		iron_ingot.count = randi_range(1, 5)
 		Player.add_item(iron_ingot)
-		print("got ", iron_ingot.count, " iron ingots")
+		print("got ", iron_ingot.count, " iron ores")
 	
 	activity = null
 	clear_btn_group()

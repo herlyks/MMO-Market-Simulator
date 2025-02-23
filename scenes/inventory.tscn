@@ -48,5 +48,3 @@ metadata/_tab_index = 3
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
-
-[connection signal="visibility_changed" from="InventoryTabContainer/Material/MaterialGridContainer" to="InventoryTabContainer/Material/MaterialGridContainer" method="_on_material_grid_container_visibility_changed"]

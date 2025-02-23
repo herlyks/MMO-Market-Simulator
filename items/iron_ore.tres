@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bj2cldauupe3r"]
+
+[ext_resource type="Script" path="res://items/item.gd" id="1_vqi3w"]
+
+[resource]
+script = ExtResource("1_vqi3w")
+id = "iron_ore"
+name = "Iron Ore"
+count = 1
+space = 1
+price = 2
+recipe = Array[ExtResource("1_vqi3w")]([])

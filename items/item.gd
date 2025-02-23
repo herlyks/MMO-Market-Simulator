@@ -6,3 +6,4 @@ extends Resource
 @export var count: int = 1
 @export var space: int = 1
 @export var price: int = 1
+@export var recipe: Array[Item] = []

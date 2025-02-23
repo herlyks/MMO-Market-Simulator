@@ -1,7 +1,7 @@
 extends GridContainer
 
 
-func _on_material_grid_container_visibility_changed() -> void:
+func _process(delta: float) -> void:
 	var table = self
 	
 	for child in table.get_children():

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://jv0kwc0xtmj2"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://jv0kwc0xtmj2"]
 
 [ext_resource type="Script" path="res://items/item.gd" id="1_n4e04"]
+[ext_resource type="Resource" uid="uid://bj2cldauupe3r" path="res://items/iron_ore.tres" id="2_m4uk2"]
 
 [resource]
 script = ExtResource("1_n4e04")
@@ -8,4 +9,5 @@ id = "iron_ingot"
 name = "Iron Ingot"
 count = 1
 space = 2
-price = 10
+price = 5
+recipe = Array[ExtResource("1_n4e04")]([ExtResource("2_m4uk2"), ExtResource("2_m4uk2")])
