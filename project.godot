@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="MMO Market Simulator"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Player="*res://globals/player.gd"
+ItemLoader="*res://globals/item_loader.gd"
 
 [gui]
 

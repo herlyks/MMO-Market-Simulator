@@ -4,6 +4,7 @@ extends TabBar
 @onready var ingredient_vbox = %IngredientVBoxContainer
 @onready var craft_btn = %CraftButton
 
+var items = ItemLoader.load_crafting_items()
 var ingredients = []
 
 
@@ -11,8 +12,9 @@ func _ready() -> void:
 	list.clear()
 	clear_ingredients()
 	
-	list.add_item("Iron Ingot")
-	list.set_item_metadata(list.get_item_count() - 1, load("res://items/iron_ingot.tres"))
+	for item in items:
+		list.add_item(item.name)
+		list.set_item_metadata(list.get_item_count() - 1, item)
 
 
 func _process(delta: float) -> void:

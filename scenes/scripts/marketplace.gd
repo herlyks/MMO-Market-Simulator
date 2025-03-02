@@ -3,11 +3,7 @@ extends TabBar
 @onready var table = %MarketplaceGridContainer
 @onready var gold_label = %GoldLabel
 
-var items = [
-	load("res://items/iron_ingot.tres").duplicate(),
-	load("res://items/iron_ore.tres").duplicate(),
-	load("res://items/leather.tres").duplicate()
-]
+var items = ItemLoader.load_marketplace_items()
 
 
 func _ready() -> void:
