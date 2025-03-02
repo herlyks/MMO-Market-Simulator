@@ -1,7 +1,7 @@
 extends Node
 
 var _inventory = []
-
+var money = 0
 
 func get_inventory():
 	var inventory = _inventory.filter(func(item): return item.count > 0)

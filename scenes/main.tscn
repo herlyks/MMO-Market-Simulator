@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxn3rqomo82do"]
+[gd_scene load_steps=7 format=3 uid="uid://dxn3rqomo82do"]
 
 [ext_resource type="Script" path="res://scenes/scripts/main.gd" id="1_mpesy"]
 [ext_resource type="PackedScene" uid="uid://cp5tl48o1l1pe" path="res://scenes/activity.tscn" id="3_3wh1q"]
 [ext_resource type="PackedScene" uid="uid://cqqkfw6ntbnqk" path="res://scenes/inventory.tscn" id="3_lqvo8"]
+[ext_resource type="PackedScene" uid="uid://b7r0nuutr0lmw" path="res://scenes/marketplace.tscn" id="4_6jblg"]
 [ext_resource type="PackedScene" uid="uid://blbm02cxi7l58" path="res://scenes/crafting.tscn" id="4_rwl70"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_a5ucl"]
@@ -42,10 +43,9 @@ activity_btn_group = SubResource("ButtonGroup_a5ucl")
 visible = false
 layout_mode = 2
 
-[node name="Marketplace" type="TabBar" parent="VBoxContainer/MainTabContainer"]
+[node name="Marketplace" parent="VBoxContainer/MainTabContainer" instance=ExtResource("4_6jblg")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
 
 [node name="Crafting" parent="VBoxContainer/MainTabContainer" instance=ExtResource("4_rwl70")]
 visible = false

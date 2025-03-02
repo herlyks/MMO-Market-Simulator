@@ -8,14 +8,17 @@ func _process(delta: float) -> void:
 		child.queue_free()
 	
 	table.columns = 4
+	
 	var name_header = Label.new()
 	var count_header = Label.new()
 	var space_header = Label.new()
 	var price_header = Label.new()
+	
 	name_header.text = "Name"
 	count_header.text = "Count"
 	space_header.text = "Space"
 	price_header.text = "Price"
+	
 	table.add_child(name_header)
 	table.add_child(count_header)
 	table.add_child(space_header)

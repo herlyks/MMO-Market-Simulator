@@ -7,3 +7,5 @@ extends Resource
 @export var space: int = 1
 @export var price: int = 1
 @export var recipe: Array[Item] = []
+@export var price_change: float = 0.1
+@export var price_change_total: float = 0.0
