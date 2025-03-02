@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqqkfw6ntbnqk"]
+[gd_scene load_steps=2 format=3 uid="uid://cqqkfw6ntbnqk"]
 
 [ext_resource type="Script" path="res://scenes/scripts/inventory.gd" id="1_2cty8"]
-[ext_resource type="Script" path="res://scenes/scripts/material_grid_container.gd" id="2_37xje"]
 
 [node name="Inventory" type="TabBar"]
 anchors_preset = 15
@@ -26,8 +25,8 @@ layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="MaterialGridContainer" type="GridContainer" parent="InventoryTabContainer/Material"]
+unique_name_in_owner = true
 layout_mode = 1
-script = ExtResource("2_37xje")
 
 [node name="Equipment" type="TabBar" parent="InventoryTabContainer"]
 visible = false
