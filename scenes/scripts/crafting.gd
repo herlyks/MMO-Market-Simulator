@@ -78,7 +78,7 @@ func player_has_ingredients():
 
 func _on_craft_button_pressed() -> void:
 	var index = list.get_selected_items()[0]
-	var crafted_item = list.get_item_metadata(index)
+	var crafted_item = list.get_item_metadata(index).duplicate()
 	
 	for item in ingredients:
 		Player.remove_item(item)
