@@ -1,5 +1,7 @@
 extends TabBar
 
+signal marketplace_changed
+
 @onready var table = %MarketplaceGridContainer
 @onready var gold_label = %GoldLabel
 
@@ -7,14 +9,12 @@ var items = ItemLoader.load_marketplace_items()
 
 
 func _ready() -> void:
-	refresh()
+	Player.inventory_changed.connect(draw_marketplace)
+	marketplace_changed.connect(draw_marketplace)
+	draw_marketplace()
 
 
-#func _process(delta: float) -> void:
-	#refresh()
-
-
-func refresh():
+func draw_marketplace():
 	var player_inventory = Player.get_inventory()
 	
 	gold_label.text = str("Money : ", Player.money, " G")
@@ -50,7 +50,7 @@ func refresh():
 		var btn_sell = Button.new()
 		
 		name.text = item.name
-		price.text = str(new_price)
+		price.text = str(item.price) + "(" + str(new_price) + ")"
 		price_change.text = str(item.price_change_total)
 		btn_buy.text = "Buy"
 		btn_sell.text = "Sell"
@@ -65,14 +65,14 @@ func refresh():
 			Player.money -= new_price
 			Player.add_item(item.duplicate())
 			item.price_change_total += item.price_change
-			refresh()
+			marketplace_changed.emit()
 		)
 		
 		btn_sell.pressed.connect(func():
 			Player.money += new_price
 			Player.remove_item(item.duplicate())
 			item.price_change_total -= item.price_change
-			refresh()
+			marketplace_changed.emit()
 		)
 		
 		table.add_child(name)
@@ -80,10 +80,6 @@ func refresh():
 		table.add_child(price_change)
 		table.add_child(btn_buy)
 		table.add_child(btn_sell)
-
-
-func _on_refresh_button_pressed() -> void:
-	refresh()
 
 
 func player_has_item(item):

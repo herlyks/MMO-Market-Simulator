@@ -3,7 +3,12 @@ extends TabBar
 @onready var table = %MaterialGridContainer
 
 
-func _process(delta: float) -> void:
+func _ready() -> void:
+	Player.inventory_changed.connect(draw_inventory)
+	draw_inventory()
+
+
+func draw_inventory():
 	for child in table.get_children():
 		child.queue_free()
 	

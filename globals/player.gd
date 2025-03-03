@@ -1,5 +1,7 @@
 extends Node
 
+signal inventory_changed
+
 var _inventory = []
 var money = 0
 
@@ -20,9 +22,13 @@ func add_item(item: Item):
 	
 	if has_item == false:
 		_inventory.append(item)
+	
+	inventory_changed.emit()
 
 
 func remove_item(item: Item):
 	for i in _inventory:
 		if i.id == item.id and i.count >= item.count:
 			i.count -= item.count
+	
+	inventory_changed.emit()

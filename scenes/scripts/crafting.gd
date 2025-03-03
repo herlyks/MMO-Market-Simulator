@@ -9,16 +9,13 @@ var ingredients = []
 
 
 func _ready() -> void:
+	Player.inventory_changed.connect(set_craft_btn)
 	list.clear()
 	clear_ingredients()
 	
 	for item in items:
 		list.add_item(item.name)
 		list.set_item_metadata(list.get_item_count() - 1, item)
-
-
-func _process(delta: float) -> void:
-	set_craft_btn()
 
 
 func _on_recipe_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
@@ -42,6 +39,8 @@ func _on_recipe_item_list_item_clicked(index: int, at_position: Vector2, mouse_b
 		var label = Label.new()
 		label.text = str(item.name, " x", item.count)
 		ingredient_vbox.add_child(label)
+	
+	set_craft_btn()
 
 
 func clear_ingredients():
