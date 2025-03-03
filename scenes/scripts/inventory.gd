@@ -16,31 +16,31 @@ func draw_inventory():
 	
 	var name_header = Label.new()
 	var count_header = Label.new()
-	var space_header = Label.new()
+	var weight_header = Label.new()
 	var price_header = Label.new()
 	
 	name_header.text = "Name"
 	count_header.text = "Count"
-	space_header.text = "Space"
+	weight_header.text = "Weight"
 	price_header.text = "Price"
 	
 	table.add_child(name_header)
 	table.add_child(count_header)
-	table.add_child(space_header)
+	table.add_child(weight_header)
 	table.add_child(price_header)
 	
 	for item in Player.get_inventory():
 		var name = Label.new()
 		var count = Label.new()
-		var space = Label.new()
+		var weight = Label.new()
 		var price = Label.new()
 		
 		name.text = item.name
 		count.text = str(item.count)
-		space.text = str(item.space)
+		weight.text = str(item.weight)
 		price.text = str(item.price)
 		
 		table.add_child(name)
 		table.add_child(count)
-		table.add_child(space)
+		table.add_child(weight)
 		table.add_child(price)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://daoh3mdmmjvul"]
+
+[ext_resource type="Script" path="res://items/item.gd" id="1_8xygw"]
+[ext_resource type="Resource" uid="uid://jv0kwc0xtmj2" path="res://items/iron_ingot.tres" id="2_ctm11"]
+
+[resource]
+script = ExtResource("1_8xygw")
+id = "iron_sword"
+name = "Iron Sword"
+count = 1
+weight = 8
+type = "equipment"
+recipe = Array[ExtResource("1_8xygw")]([ExtResource("2_ctm11"), ExtResource("2_ctm11"), ExtResource("2_ctm11"), ExtResource("2_ctm11")])
+price = 21
+price_change = 0.1
+price_change_total = 0.0
